@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +26,7 @@
 			<tr>
 				<th>Mã</th>
 				<th>Tên sách</th>
-				<th>Tác giả</th>
+				<th>Tác giả</th>\
 				<th>Giá bán</th>
 				<th>Thao tác</th>
 			</tr>
@@ -34,8 +35,8 @@
 					<td><c:out value="${book.id}" /></td>
 					<td><c:out value="${book.title}" /></td>
 					<td><c:out value="${book.author}" /></td>
-					<td><c:out value="${book.price}" /></td>
-					<td><a href="/BookStore/edit?id=<c:out value='${book.id}' />">Sửa</a>
+					<td><fmt:formatNumber type="number" maxFractionDigits ="3" value ="${book.price}" /> <sup>đ </sup></td>
+					<td><a href="/BookStore/edit?id=<c:out value= '${book.id}' />">Sửa</a>
 						&nbsp;&nbsp;&nbsp;&nbsp; <a
 						href="/BookStore/delete?id=<c:out value='${book.id}' />">Xóa</a>&nbsp;&nbsp;&nbsp;&nbsp;
 						<a href="/BookStore/detail?id=<c:out value='${book.id}' />">Chi
@@ -44,5 +45,6 @@
 			</c:forEach>
 		</table>
 	</div>
+	
 </body>
 </html>

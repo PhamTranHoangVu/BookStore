@@ -24,7 +24,7 @@ public class DBUtils {
 			throw new SQLException(e);
 		}
 		jdbcConnection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-		
+
 		return jdbcConnection;
 	}
 
@@ -39,7 +39,7 @@ public class DBUtils {
 		// Chuẩn bị truy vấn SQL
 		String sql = "INSERT INTO book (title, author, price) VALUES (?, ?, ?)";
 		PreparedStatement statement = dbConnect.prepareStatement(sql);
-		
+
 		// truyền tham số
 		statement.setString(1, newbook.getTitle());
 		statement.setString(2, newbook.getAuthor());
@@ -145,4 +145,29 @@ public class DBUtils {
 		dbConnect.close();
 		return book;
 	}
+
+	/**
+	 * Quan ly Loại sách
+	 * @throws SQLException 
+	 */
+	public static List<Category> ListCategory() throws SQLException {
+		List<Category> listCategory = new ArrayList<>();
+		// Kết nối đên DB
+		Connection dbConnect = ConnectDB();
+		// Chuẩn bị truy vấn SQL
+		String sql = "SELECT * FROM Category";
+		Statement statement = dbConnect.createStatement();
+		// Thực hiện câu lệnh truy vấn lựa chọn, với kết quả đã cất vào biến bangKetQua
+		ResultSet bangKetQua = statement.executeQuery(sql);
+		while (bangKetQua.next()) // khi vẫn còn next được (còn bản ghi)
+		{
+			int id = bangKetQua.getInt("category_id"); 
+			String name = bangKetQua.getString("category_name"); 
+			Category category = new Category(id, name);
+			// Thêm vào danh sách các Book
+			listCategory.add(category);
+		}
+		return listCategory;
+	}
+
 }

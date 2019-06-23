@@ -5,6 +5,7 @@
 <head>
 <title>Ứng dụng quản lý kho sách</title>
 </head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <body>
 	<center>
 		<h1>QUẢN LÝ SÁCH</h1>
@@ -19,29 +20,31 @@
 		<form action="insert" method="post">
 			<table border="1" cellpadding="5">
 				<caption>
-					<h2>
-
-                        Thêm mới một quyển sách
-
-					</h2>
+					<h2>Thêm mới một quyển sách</h2>
 				</caption>
 
 				<tr>
 					<th>Title:</th>
 					<td><input type="text" name="title" size="45"
-						value="<c:out value='${book.title}' />" />
-					</td>
+						value="<c:out value='${book.title}' />" /></td>
 				</tr>
 				<tr>
 					<th>Author:</th>
 					<td><input type="text" name="author" size="45"
-						value="<c:out value='${book.author}' />" />
-					</td>
+						value="<c:out value='${book.author}' />" /></td>
 				</tr>
 				<tr>
 					<th>Price:</th>
 					<td><input type="text" name="price" size="5"
 						value="<c:out value='${book.price}' />" /></td>
+				</tr>
+				<tr>
+					<th>Loại sách:</th>
+					<td><select name = "dropdownCategory">
+							<c:forEach var="listCategory" items="${listCategory}">
+								<option value="${listCategory.id}">${listCategory.name}</option>
+							</c:forEach>
+					</select></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center"><input type="submit"
@@ -51,4 +54,4 @@
 		</form>
 	</div>
 </body>
-</html> 
+</html>

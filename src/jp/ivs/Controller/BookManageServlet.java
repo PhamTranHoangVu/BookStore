@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import jp.ivs.Model.Book;
+import jp.ivs.Model.Category;
 import jp.ivs.Model.DBUtils;
 
 /**
@@ -35,12 +36,11 @@ public class BookManageServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		// Xem URL người ta chọn hành động gì
 		String action = request.getServletPath();
 		// tùy thuộc vào hành động là gì, mà gọi HÀM được viết ở ngoài doGet cho gọn
 		try {
-			
 			switch (action) {
 			case "/detail": //
 				showBook(request, response);
@@ -100,9 +100,12 @@ public class BookManageServlet extends HttpServlet {
 	}
 
 	private void showNewForm(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+			throws ServletException, IOException, SQLException {
+		//
+		List<Category> listCategory = DBUtils.ListCategory();
 		// Sử dụng chức năng điều hướng sang trang jssp
 		RequestDispatcher dispatcher = request.getRequestDispatcher("BookAdd.jsp");
+		request.setAttribute("listCategory", listCategory); // Truyền dữ liệu ra trang jsp
 		// thực hiện điều hướng
 		dispatcher.forward(request, response);
 	}
@@ -128,6 +131,7 @@ public class BookManageServlet extends HttpServlet {
 		String title = request.getParameter("title");
 		String author = request.getParameter("author");
 		float price = Float.parseFloat(request.getParameter("price"));
+		String id = request.getParameter("dropdownCategory");
 		// Gói lại
 		Book newBook = new Book(title, author, price);
 		// Chèn vô DB sử dụng dịch vụ insert của lớp DB
