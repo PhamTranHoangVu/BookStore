@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+encoding//WebContent/ListAllBook.jsp=UTF-8
+encoding//src/jp/ivs/Controller/BookManageServlet.java=UTF-8
+encoding//src/jp/ivs/Model/DBUtils.java=UTF-8
