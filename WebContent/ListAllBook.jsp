@@ -10,8 +10,8 @@
 	<center>
 		<h1>QUẢN LÝ SÁCH</h1>
 		<h2>
-			<a href="/Bookstore/new">Thêm mới Sách</a> &nbsp;&nbsp;&nbsp; <a
-				href="/Bookstore/list">Danh sách Sách</a>
+			<a href="/BookStore/new">Thêm mới Sách</a> &nbsp;&nbsp;&nbsp; <a
+				href="/BookStore/list">Danh sách Sách</a>
 
 		</h2>
 	</center>
@@ -35,10 +35,10 @@
 					<td><c:out value="${book.title}" /></td>
 					<td><c:out value="${book.author}" /></td>
 					<td><c:out value="${book.price}" /></td>
-					<td><a href="/Bookstore/edit?id=<c:out value='${book.id}' />">Sửa</a>
+					<td><a href="/BookStore/edit?id=<c:out value='${book.id}' />">Sửa</a>
 						&nbsp;&nbsp;&nbsp;&nbsp; <a
-						href="/Bookstore/delete?id=<c:out value='${book.id}' />">Xóa</a>&nbsp;&nbsp;&nbsp;&nbsp;
-						<a href="/Bookstore/detail?id=<c:out value='${book.id}' />">Chi
+						href="/BookStore/delete?id=<c:out value='${book.id}' />">Xóa</a>&nbsp;&nbsp;&nbsp;&nbsp;
+						<a href="/BookStore/detail?id=<c:out value='${book.id}' />">Chi
 							tiết</a></td>
 				</tr>
 			</c:forEach>

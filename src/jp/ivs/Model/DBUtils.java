@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DBUtils {
-	private static String jdbcURL = "jdbc:mysql://localhost:3306/bookstore";
+	private static String jdbcURL = "jdbc:mysql://localhost:3306/bookstore?useUnicode=true&characterEncoding=utf-8";
 	private static String jdbcUsername = "pthvu";
 	private static String jdbcPassword = "hoangvu123";
 
@@ -24,6 +24,7 @@ public class DBUtils {
 			throw new SQLException(e);
 		}
 		jdbcConnection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+		
 		return jdbcConnection;
 	}
 
@@ -38,6 +39,7 @@ public class DBUtils {
 		// Chuẩn bị truy vấn SQL
 		String sql = "INSERT INTO book (title, author, price) VALUES (?, ?, ?)";
 		PreparedStatement statement = dbConnect.prepareStatement(sql);
+		
 		// truyền tham số
 		statement.setString(1, newbook.getTitle());
 		statement.setString(2, newbook.getAuthor());
@@ -102,7 +104,6 @@ public class DBUtils {
 		// Kết nối đên DB
 		Connection dbConnect = ConnectDB();
 		// Chuẩn bị truy vấn SQL
-
 		String sql = "UPDATE book SET title = ?, author = ?, price = ?";
 		sql += " WHERE book_id = ?";
 		// truyền tham số

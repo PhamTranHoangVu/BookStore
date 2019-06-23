@@ -9,4 +9,59 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+
+    <servlet>
+    <servlet-name>new</servlet-name>
+    <servlet-class>BookManageServlet.java"</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>new</servlet-name>
+    <url-pattern>/BookStore/new</url-pattern>
+  </servlet-mapping>
+  
+      <servlet>
+    <servlet-name>detail</servlet-name>
+    <servlet-class>BookManageServlet.java"</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>detail</servlet-name>
+    <url-pattern>/BookStore/detail</url-pattern>
+  </servlet-mapping>
+  
+      <servlet>
+    <servlet-name>insert</servlet-name>
+    <servlet-class>BookManageServlet.java"</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>insert</servlet-name>
+    <url-pattern>/BookStore/insert</url-pattern>
+  </servlet-mapping>
+  
+      <servlet>
+    <servlet-name>delete</servlet-name>
+    <servlet-class>BookManageServlet.java"</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>delete</servlet-name>
+    <url-pattern>/BookStore/delete</url-pattern>
+  </servlet-mapping>
+  
+        <servlet>
+    <servlet-name>edit</servlet-name>
+    <servlet-class>BookManageServlet.java"</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>edit</servlet-name>
+    <url-pattern>/BookStore/edit</url-pattern>
+  </servlet-mapping>
+  
+          <servlet>
+    <servlet-name>list</servlet-name>
+    <servlet-class>BookManageServlet.java"</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>list</servlet-name>
+    <url-pattern>/BookStore/list</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
